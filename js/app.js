@@ -1,6 +1,10 @@
  let listaDeNomes = [];
 function adicionar(){
     let nomeDigitado = document.getElementById('nome-amigo').value;
+    if (nomeDigitado == '') {
+        alert('Preencha o campo para adicionar um amigo');
+    }
+
     if (listaDeNomes.includes(nomeDigitado)) {
         alert('Não é permitido nomes repitidos');
     }
