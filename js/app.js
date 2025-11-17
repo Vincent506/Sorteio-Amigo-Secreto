@@ -6,16 +6,23 @@ function adicionar(){
         return;
     }
 
+    if (verificationArray(nomeDigitado)) {
+         alert('Não é permitido nomes repitidos');
+         return;
+    }
+
     if (listaDeNomes.includes(nomeDigitado)) {
         alert('Não é permitido nomes repitidos');
+        return;
     }
     else{
         listaDeNomes.push(nomeDigitado);
+
     }
 
     let lista = document.getElementById("lista-amigos");
     lista.textContent = listaDeNomes;
-     document.getElementById('nome-amigo').value = '';
+    document.getElementById('nome-amigo').value = '';
 }
 
 function sortear(){
@@ -56,4 +63,17 @@ function embaralhar(lista){
         [lista[indice-1],lista[indiceAleatorio]] = [lista[indiceAleatorio], lista[indice-1]];
     }
 
+}
+
+function verificationArray(nome) {
+    listaMaior = [];
+    for(let i = 0; i < listaDeNomes.length; i++ ){
+        listaMaior.push(listaDeNomes[i].toUpperCase());
+    }
+
+    if (listaMaior.includes(nome.toUpperCase())) {
+        return true;
+    }else{
+        return false;
+    }
 }
